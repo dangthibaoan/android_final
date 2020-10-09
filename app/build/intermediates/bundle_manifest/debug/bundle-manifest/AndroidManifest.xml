@@ -20,6 +20,19 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.ezorder.Order_Sub_1" />
+        <activity
+            android:name="com.example.ezorder.ChefScreen"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
+        <activity
+            android:name="com.example.ezorder.ManagementScreen"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
+        <activity
+            android:name="com.example.ezorder.LoginScreen"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
+        <activity
+            android:name="com.example.ezorder.OrderScreen"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name="com.example.ezorder.SplashScreen"
             android:theme="@style/SplashTheme" >

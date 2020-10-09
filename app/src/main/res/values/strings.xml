@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">ezOrder</string>
+    <string name="imageDesc">Image description</string>
+    <string name="hintUsername">Tên đăng nhập</string>
+    <string name="hintPassword">Mật khẩu</string>
+    <string name="btnLogin">Đăng nhập</string>
+
+    <string name="frag1">Hello fragment 1</string>
+    <string name="frag2">Hello fragment 2</string>
+    <string name="frag3">Hello fragment 3</string>
+
+    <string name="menu_user">User</string>
+    <string name="menu_food">Food</string>
+    <string name="menu_table">Table</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="button_Cancel">Cancel</string>
+    <string name="button_OK">OK</string>
+
 </resources>

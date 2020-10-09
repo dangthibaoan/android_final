@@ -11,7 +11,7 @@
 9-->E:\android_final\Order\app\src\main\AndroidManifest.xml
 10
 11    <application
-11-->E:\android_final\Order\app\src\main\AndroidManifest.xml:5:5-23:19
+11-->E:\android_final\Order\app\src\main\AndroidManifest.xml:5:5-36:19
 12        android:allowBackup="true"
 12-->E:\android_final\Order\app\src\main\AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -31,26 +31,53 @@
 21        android:testOnly="true"
 22        android:theme="@style/AppTheme" >
 22-->E:\android_final\Order\app\src\main\AndroidManifest.xml:12:9-40
-23        <activity
-23-->E:\android_final\Order\app\src\main\AndroidManifest.xml:13:9-21:20
-24            android:name="com.example.ezorder.SplashScreen"
-24-->E:\android_final\Order\app\src\main\AndroidManifest.xml:14:13-41
-25            android:theme="@style/SplashTheme" >
-25-->E:\android_final\Order\app\src\main\AndroidManifest.xml:15:13-47
-26            <intent-filter>
-26-->E:\android_final\Order\app\src\main\AndroidManifest.xml:16:13-20:29
-27                <action android:name="android.intent.action.MAIN" />
-27-->E:\android_final\Order\app\src\main\AndroidManifest.xml:17:17-69
-27-->E:\android_final\Order\app\src\main\AndroidManifest.xml:17:25-66
-28
-29                <category android:name="android.intent.category.LAUNCHER" />
-29-->E:\android_final\Order\app\src\main\AndroidManifest.xml:19:17-77
-29-->E:\android_final\Order\app\src\main\AndroidManifest.xml:19:27-74
-30            </intent-filter>
-31        </activity>
-32        <activity android:name="com.example.ezorder.MainActivity" />
-32-->E:\android_final\Order\app\src\main\AndroidManifest.xml:22:9-50
-32-->E:\android_final\Order\app\src\main\AndroidManifest.xml:22:19-47
-33    </application>
-34
-35</manifest>
+23        <activity android:name="com.example.ezorder.Order_Sub_1" />
+23-->E:\android_final\Order\app\src\main\AndroidManifest.xml:13:9-58
+23-->E:\android_final\Order\app\src\main\AndroidManifest.xml:13:19-46
+24        <activity
+24-->E:\android_final\Order\app\src\main\AndroidManifest.xml:14:9-16:81
+25            android:name="com.example.ezorder.ChefScreen"
+25-->E:\android_final\Order\app\src\main\AndroidManifest.xml:15:13-39
+26            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
+26-->E:\android_final\Order\app\src\main\AndroidManifest.xml:16:13-78
+27        <activity
+27-->E:\android_final\Order\app\src\main\AndroidManifest.xml:17:9-19:81
+28            android:name="com.example.ezorder.ManagementScreen"
+28-->E:\android_final\Order\app\src\main\AndroidManifest.xml:18:13-45
+29            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
+29-->E:\android_final\Order\app\src\main\AndroidManifest.xml:19:13-78
+30        <activity
+30-->E:\android_final\Order\app\src\main\AndroidManifest.xml:20:9-22:81
+31            android:name="com.example.ezorder.LoginScreen"
+31-->E:\android_final\Order\app\src\main\AndroidManifest.xml:21:13-40
+32            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
+32-->E:\android_final\Order\app\src\main\AndroidManifest.xml:22:13-78
+33        <activity
+33-->E:\android_final\Order\app\src\main\AndroidManifest.xml:23:9-25:81
+34            android:name="com.example.ezorder.OrderScreen"
+34-->E:\android_final\Order\app\src\main\AndroidManifest.xml:24:13-40
+35            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
+35-->E:\android_final\Order\app\src\main\AndroidManifest.xml:25:13-78
+36        <activity
+36-->E:\android_final\Order\app\src\main\AndroidManifest.xml:26:9-34:20
+37            android:name="com.example.ezorder.SplashScreen"
+37-->E:\android_final\Order\app\src\main\AndroidManifest.xml:27:13-41
+38            android:theme="@style/SplashTheme" >
+38-->E:\android_final\Order\app\src\main\AndroidManifest.xml:28:13-47
+39            <intent-filter>
+39-->E:\android_final\Order\app\src\main\AndroidManifest.xml:29:13-33:29
+40                <action android:name="android.intent.action.MAIN" />
+40-->E:\android_final\Order\app\src\main\AndroidManifest.xml:30:17-69
+40-->E:\android_final\Order\app\src\main\AndroidManifest.xml:30:25-66
+41
+42                <category android:name="android.intent.category.LAUNCHER" />
+42-->E:\android_final\Order\app\src\main\AndroidManifest.xml:32:17-77
+42-->E:\android_final\Order\app\src\main\AndroidManifest.xml:32:27-74
+43            </intent-filter>
+44        </activity>
+45        <activity android:name="com.example.ezorder.MainActivity" />
+45-->E:\android_final\Order\app\src\main\AndroidManifest.xml:35:9-50
+45-->E:\android_final\Order\app\src\main\AndroidManifest.xml:35:19-47
+46    </application>
+47
+48</manifest>

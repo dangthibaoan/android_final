@@ -17,23 +17,22 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     // TODO : Table User
-    private static final String TABLE_USER               = "tblUser";
-    private static final String COLUMN_USER_ID           = "User_ID";
-    private static final String COLUMN_USER_NAME         = "User_Name";
-    private static final String COLUMN_USER_PHONE        = "User_Phone";
-    private static final String COLUMN_USER_ACCOUNT_NAME = "User_username";
-    private static final String COLUMN_USER_ACCOUNT_PASS = "User_password";
-    private static final String COLUMN_USER_STATUS       = "User_status";
-    private static final String COLUMN_USER_ROLE_FK      = "Role_ID";
+    private static final String TABLE_USER = "tblUser";
+    private static final String COLUMN_USER_ID = "User_ID";
+    private static final String COLUMN_USER_NAME = "User_Name";
+    private static final String COLUMN_USER_PHONE = "User_Phone";
+    private static final String COLUMN_USER_ACCOUNT_NAME = "Account_name";
+    private static final String COLUMN_USER_ACCOUNT_PASS = "Account_password";
+    private static final String COLUMN_USER_ROLE_FK = "Role_ID";
 
     // TODO : Table Role
-    private static final String TABLE_ROLE       = "tblRole";
-    private static final String COLUMN_ROLE_ID   = "Role_ID";
+    private static final String TABLE_ROLE = "tblRole";
+    private static final String COLUMN_ROLE_ID = "Role_ID";
     private static final String COLUMN_ROLE_NAME = "Role_Name";
 
     // TODO : Table "Table"
-    private static final String TABLE_TABLE         = "tblTable";
-    private static final String COLUMN_TABLE_ID     = "Table_ID";
+    private static final String TABLE_TABLE = "tblTable";
+    private static final String COLUMN_TABLE_ID = "Table_ID";
     private static final String COLUMN_TABLE_NUMBER = "Table_number";
     private static final String COLUMN_TABLE_STATUS = "Table_status";
 
@@ -73,7 +72,6 @@ public class DBHelper extends SQLiteOpenHelper {
             COLUMN_USER_PHONE + " TEXT," +
             COLUMN_USER_ACCOUNT_NAME + " TEXT," +
             COLUMN_USER_ACCOUNT_PASS + " TEXT," +
-            COLUMN_USER_STATUS + " INTEGER," +
             COLUMN_USER_ROLE_FK + " INTEGER REFERENCES " + TABLE_ROLE + ")";
 
     // TODO : table Role
@@ -112,7 +110,6 @@ public class DBHelper extends SQLiteOpenHelper {
             COLUMN_BILL_TOTAL + " INTEGER," +
             COLUMN_BILL_USER_FK + " INTEGER REFERENCES " + TABLE_USER + "," +
             COLUMN_BILL_ORDER_FK + " INTEGER REFERENCES " + TABLE_ORDER + ")";
-
 
     // TODO : STRING DROP
     private static final String DROP_TABLE_USER = "DROP TABLE IF EXISTS " + TABLE_USER;

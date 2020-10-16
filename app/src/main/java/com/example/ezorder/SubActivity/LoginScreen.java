@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ezorder.DBHelper;
 import com.example.ezorder.MainActivity;
-import com.example.ezorder.Model.User;
 import com.example.ezorder.R;
 
 public class LoginScreen extends AppCompatActivity {
@@ -24,18 +23,18 @@ public class LoginScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
 
-        eUsername = findViewById(R.id.username);
-        ePassword = findViewById(R.id.password);
+//        eUsername = findViewById(R.id.username);
+//        ePassword = findViewById(R.id.password);
         btnLogin = findViewById(R.id.buttonLogin);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = eUsername.getText().toString().trim();
-                String pass = ePassword.getText().toString().trim();
-                User user = new User();
-                user.setAccountName(name);
-                user.setAccountPass(pass);
+//                String name = eUsername.getText().toString().trim();
+//                String pass = ePassword.getText().toString().trim();
+//                User user = new User();
+//                user.setAccountName(name);
+//                user.setAccountPass(pass);
 
                 Intent intent = new Intent(LoginScreen.this, MainActivity.class);
                 startActivity(intent);

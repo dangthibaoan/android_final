@@ -37,6 +37,7 @@ import com.google.android.material.switchmaterial.SwitchMaterial;
 
 import java.io.ByteArrayOutputStream;
 import java.util.List;
+import java.util.Objects;
 
 
 public class FoodFragment extends Fragment {
@@ -68,7 +69,7 @@ public class FoodFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Food food = (Food) parent.getItemAtPosition(position);
-                LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                LayoutInflater inflater = (LayoutInflater) Objects.requireNonNull(getActivity()).getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 @SuppressLint("InflateParams") View view2 = inflater.inflate(R.layout.dialog_food_detail, null);
 
                 txtFoodIDDetail = view2.findViewById(R.id.txtFoodID2);
@@ -100,7 +101,7 @@ public class FoodFragment extends Fragment {
                     public void onClick(View v) {
                         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                         try {
-                            startActivityForResult(intent, 123);
+                            startActivityForResult(intent, 111);
                         } catch (ActivityNotFoundException e) {
                             e.printStackTrace();
                         }
@@ -111,7 +112,7 @@ public class FoodFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-                        startActivityForResult(intent, 999);
+                        startActivityForResult(intent, 112);
                     }
                 });
 
@@ -159,7 +160,7 @@ public class FoodFragment extends Fragment {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                LayoutInflater inflater = (LayoutInflater) Objects.requireNonNull(getActivity()).getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 @SuppressLint("InflateParams") View view1 = inflater.inflate(R.layout.dialog_add_food, null);
 
                 eName = view1.findViewById(R.id.edtFoodName);
@@ -231,7 +232,7 @@ public class FoodFragment extends Fragment {
     }
 
     void checkMiss() {
-        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(Objects.requireNonNull(getActivity()), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[]{Manifest.permission.CAMERA}, 666);
         }
         if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
@@ -241,16 +242,26 @@ public class FoodFragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 123 && resultCode == -1) {
+            assert data != null;
             Bundle extra = data.getExtras();
             Bitmap bitmap = (Bitmap) extra.get("data");
             imageFood.setImageBitmap(bitmap);
+        }
+        if (requestCode == 111 && resultCode == -1) {
+            assert data != null;
+            Bundle extra = data.getExtras();
+            Bitmap bitmap = (Bitmap) extra.get("data");
             imageFoodDetail.setImageBitmap(bitmap);
         }
-
+        if (requestCode == 112 && resultCode == -1) {
+            assert data != null;
+            uri = data.getData();
+            imageFoodDetail.setImageURI(uri);
+        }
         if (requestCode == 999 && resultCode == -1) {
+            assert data != null;
             uri = data.getData();
             imageFood.setImageURI(uri);
             imageFoodDetail.setImageURI(uri);

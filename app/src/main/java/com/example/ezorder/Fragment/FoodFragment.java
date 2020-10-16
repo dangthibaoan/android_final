@@ -249,21 +249,23 @@ public class FoodFragment extends Fragment {
             Bitmap bitmap = (Bitmap) extra.get("data");
             imageFood.setImageBitmap(bitmap);
         }
+
+        if (requestCode == 999 && resultCode == -1) {
+            assert data != null;
+            uri = data.getData();
+            imageFood.setImageURI(uri);
+        }
+
         if (requestCode == 111 && resultCode == -1) {
             assert data != null;
             Bundle extra = data.getExtras();
             Bitmap bitmap = (Bitmap) extra.get("data");
             imageFoodDetail.setImageBitmap(bitmap);
         }
+
         if (requestCode == 112 && resultCode == -1) {
             assert data != null;
             uri = data.getData();
-            imageFoodDetail.setImageURI(uri);
-        }
-        if (requestCode == 999 && resultCode == -1) {
-            assert data != null;
-            uri = data.getData();
-            imageFood.setImageURI(uri);
             imageFoodDetail.setImageURI(uri);
         }
     }

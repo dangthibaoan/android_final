@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/edtFoodName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:autofillHints="@string/food_name"
+        android:ems="10"
+        android:hint="@string/food_name"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtFoodPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:autofillHints="@string/food_price"
+        android:ems="10"
+        android:hint="@string/food_price"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtFoodName" />
+
+    <EditText
+        android:id="@+id/edtFoodUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:autofillHints="@string/food_unit"
+        android:ems="10"
+        android:hint="@string/food_unit"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtFoodPrice" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/swFoodStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/food_status"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtFoodUnit" />
+
+    <ImageView
+        android:id="@+id/FoodImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/food_img"
+        android:src="@drawable/ic_launcher_foreground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/swFoodStatus" />
+
+    <Button
+        android:id="@+id/btnShot"
+        android:layout_width="@dimen/icon_inner_width"
+        android:layout_height="@dimen/icon_inner_height"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/baseline_camera_alt_black_24dp"
+        app:layout_constraintStart_toEndOf="@+id/FoodImage"
+        app:layout_constraintTop_toBottomOf="@+id/swFoodStatus" />
+
+    <Button
+        android:id="@+id/btnChoose"
+        android:layout_width="@dimen/icon_inner_width"
+        android:layout_height="@dimen/icon_inner_height"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/baseline_folder_open_black_24dp"
+        app:layout_constraintStart_toEndOf="@+id/FoodImage"
+        app:layout_constraintTop_toBottomOf="@+id/btnShot" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,16 +1,14 @@
-package com.example.ezorder;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+package com.example.ezorder.SubActivity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import com.example.ezorder.Adapter.CustomDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.ezorder.Adapter.Order_Sub_1_Adapter;
+import com.example.ezorder.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,10 +35,7 @@ public class Order_Sub_1 extends AppCompatActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                FragmentManager manager = getSupportFragmentManager();
-                FragmentTransaction transaction = manager.beginTransaction();
-                CustomDialog dialog = new CustomDialog();
-                dialog.show(transaction, null);
+
             }
         });
     }

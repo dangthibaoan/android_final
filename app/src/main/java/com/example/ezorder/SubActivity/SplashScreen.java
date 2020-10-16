@@ -1,9 +1,9 @@
-package com.example.ezorder;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.ezorder.SubActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashScreen extends AppCompatActivity {
 

@@ -8,6 +8,10 @@
         "source": "E:\\android_final\\Order\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
+        "merged": "E:\\android_final\\Order\\app\\build\\intermediates\\res\\merged\\debug\\layout_user_item.xml.flat",
+        "source": "E:\\android_final\\Order\\app\\src\\main\\res\\layout\\user_item.xml"
+    },
+    {
         "merged": "E:\\android_final\\Order\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_food.png.flat",
         "source": "E:\\android_final\\Order\\app\\src\\main\\res\\drawable-xxhdpi\\ic_food.png"
     },
@@ -88,12 +92,20 @@
         "source": "E:\\android_final\\Order\\app\\src\\main\\res\\layout\\activity_order__sub_1.xml"
     },
     {
+        "merged": "E:\\android_final\\Order\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_role.png.flat",
+        "source": "E:\\android_final\\Order\\app\\src\\main\\res\\drawable-xhdpi\\ic_role.png"
+    },
+    {
         "merged": "E:\\android_final\\Order\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "E:\\android_final\\Order\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
         "merged": "E:\\android_final\\Order\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_table_slot.png.flat",
         "source": "E:\\android_final\\Order\\app\\src\\main\\res\\drawable-mdpi\\ic_table_slot.png"
+    },
+    {
+        "merged": "E:\\android_final\\Order\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_role.png.flat",
+        "source": "E:\\android_final\\Order\\app\\src\\main\\res\\drawable-xxhdpi\\ic_role.png"
     },
     {
         "merged": "E:\\android_final\\Order\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_delete.png.flat",
@@ -136,6 +148,10 @@
         "source": "E:\\android_final\\Order\\app\\src\\main\\res\\drawable-xxhdpi\\ic_edit.png"
     },
     {
+        "merged": "E:\\android_final\\Order\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_role.png.flat",
+        "source": "E:\\android_final\\Order\\app\\src\\main\\res\\drawable-mdpi\\ic_role.png"
+    },
+    {
         "merged": "E:\\android_final\\Order\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi_ic_delete.xml.flat",
         "source": "E:\\android_final\\Order\\app\\src\\main\\res\\drawable-anydpi\\ic_delete.xml"
     },
@@ -168,6 +184,10 @@
         "source": "E:\\android_final\\Order\\app\\src\\main\\res\\drawable-xhdpi\\ic_table.png"
     },
     {
+        "merged": "E:\\android_final\\Order\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_add_user_dialog.xml.flat",
+        "source": "E:\\android_final\\Order\\app\\src\\main\\res\\layout\\fragment_add_user_dialog.xml"
+    },
+    {
         "merged": "E:\\android_final\\Order\\app\\build\\intermediates\\res\\merged\\debug\\layout_chef_item.xml.flat",
         "source": "E:\\android_final\\Order\\app\\src\\main\\res\\layout\\chef_item.xml"
     },
@@ -194,6 +214,10 @@
     {
         "merged": "E:\\android_final\\Order\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_table_slot.png.flat",
         "source": "E:\\android_final\\Order\\app\\src\\main\\res\\drawable-xxhdpi\\ic_table_slot.png"
+    },
+    {
+        "merged": "E:\\android_final\\Order\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi_ic_role.xml.flat",
+        "source": "E:\\android_final\\Order\\app\\src\\main\\res\\drawable-anydpi\\ic_role.xml"
     },
     {
         "merged": "E:\\android_final\\Order\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_table.png.flat",
@@ -300,8 +324,16 @@
         "source": "E:\\android_final\\Order\\app\\src\\main\\res\\drawable-hdpi\\ic_user.png"
     },
     {
+        "merged": "E:\\android_final\\Order\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_role.xml.flat",
+        "source": "E:\\android_final\\Order\\app\\src\\main\\res\\layout\\fragment_role.xml"
+    },
+    {
         "merged": "E:\\android_final\\Order\\app\\build\\intermediates\\res\\merged\\debug\\xml_backup_descriptor.xml.flat",
         "source": "E:\\android_final\\Order\\app\\src\\main\\res\\xml\\backup_descriptor.xml"
+    },
+    {
+        "merged": "E:\\android_final\\Order\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_role.png.flat",
+        "source": "E:\\android_final\\Order\\app\\src\\main\\res\\drawable-hdpi\\ic_role.png"
     },
     {
         "merged": "E:\\android_final\\Order\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",

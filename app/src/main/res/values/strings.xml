@@ -1,20 +1,60 @@
 <resources>
+    <!--    TODO : Core -->
     <string name="app_name">ezOrder</string>
     <string name="imageDesc">Image description</string>
     <string name="hintUsername">Tên đăng nhập</string>
     <string name="hintPassword">Mật khẩu</string>
     <string name="btnLogin">Đăng nhập</string>
+    <!--    TODO : Menu-->
+    <string name="menu_user">Người dùng</string>
+    <string name="menu_food">Đồ ăn</string>
+    <string name="menu_table">Bàn</string>
+    <string name="menu_role">Quyền</string>
 
-    <string name="frag1">Hello fragment 1</string>
-    <string name="frag2">Hello fragment 2</string>
-    <string name="frag3">Hello fragment 3</string>
-
-    <string name="menu_user">User</string>
-    <string name="menu_food">Food</string>
-    <string name="menu_table">Table</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--  TODO : Other-->
     <string name="button_Cancel">Cancel</string>
     <string name="button_OK">OK</string>
 
+    <!--  TODO : User  -->
+    <string name="UserID">User ID</string>
+    <string name="UserName">Tên</string>
+    <string name="AccountName">Tài khoản</string>
+    <string name="AccountPass">Mật khẩu</string>
+    <string name="UserPhone">SĐT</string>
+    <string name="UserRole">Quyền</string>
+    <string name="add_User">Thêm người dùng</string>
+    <string name="userDetail">Chi tiết người dùng</string>
+
+    <!--    TODO : Order-->
+    <string name="choose_number">Chi tiết order</string>
+    <string name="number">Số lượng</string>
+
+    <!--  TODO :Role -->
+    <string name="add_role">Thêm quyền</string>
+    <string name="role_ID">Mã quyền</string>
+    <string name="role_name">Tên quyền</string>
+    <string name="role_detail">Chi tiết quyền</string>
+
+    <!--   TODO : Table -->
+    <string name="table_ID">Mã bàn</string>
+    <string name="table_num">Số lượng</string>
+    <string name="table_status">Trạng thái</string>
+    <string name="add_table">Thêm bàn</string>
+    <string name="table_full">Đầy</string>
+    <string name="table_empty">Trống</string>
+    <string name="table_detail">Chi tiết bàn</string>
+
+    <!--    TODO : Food-->
+    <string name="food_id">Mã món</string>
+    <string name="food_name">Tên món</string>
+    <string name="food_unit">Đơn vị</string>
+    <string name="food_img">Hình ảnh</string>
+    <string name="food_price">Giá</string>
+    <string name="food_status">Trạng thái</string>
+    <string name="food_detail">Chi tiết món </string>
+    <string name="add_food">Thêm món</string>
+    <string name="food_empty">Trống</string>
+    <string name="food_ready">Sẵn sàng</string>
+
+    <string name="ID">ID</string>
 </resources>

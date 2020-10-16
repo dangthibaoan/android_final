@@ -11,14 +11,12 @@ import android.widget.TextView;
 
 import com.example.ezorder.R;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 public class Order_Sub_1_Adapter extends BaseAdapter {
-    private Context context;
-    private int img;
-    private List<String> list;
+    private final Context context;
+    private final int img;
+    private final List<String> list;
 
     public Order_Sub_1_Adapter(Context context, int img, List<String> list) {
         this.context = context;

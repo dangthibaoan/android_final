@@ -2,7 +2,6 @@ package com.example.ezorder.Adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +15,9 @@ import java.util.List;
 
 public class ChefAdapter extends BaseAdapter {
 
-    private Context context;
-    private int img;
-    private List<String> list;
+    private final Context context;
+    private final int img;
+    private final List<String> list;
 
     public ChefAdapter(Context context, int img, List<String> list) {
         this.context = context;

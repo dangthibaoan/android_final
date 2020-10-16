@@ -14,8 +14,8 @@ import com.example.ezorder.R;
 import java.util.List;
 
 public class OrderAdapter extends BaseAdapter {
-    private Context context;
-    private int images;
+    Context context;
+    int images;
     List<String> list;
 
     public OrderAdapter(Context context, int images, List<String> list) {
@@ -43,7 +43,7 @@ public class OrderAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        convertView = inflater.inflate(R.layout.table_item, null);
+        convertView = inflater.inflate(R.layout.table_order_item, null);
 
         TextView textView = convertView.findViewById(R.id.textView);
         textView.setText(list.get(position));

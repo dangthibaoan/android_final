@@ -6,28 +6,34 @@ public class User {
     private String phone;
     private String accountName;
     private String accountPass;
-    private boolean status;
     private int user_role;
 
     public User() {
     }
 
-    public User(String userName, String phone, String accountName, String accountPass, boolean status, int user_role) {
-        this.userName = userName;
-        this.phone = phone;
+    public User(String accountName, String accountPass) {
         this.accountName = accountName;
         this.accountPass = accountPass;
-        this.status = status;
-        this.user_role = user_role;
     }
 
-    public User(int userID, String userName, String phone, String accountName, String accountPass, boolean status, int user_role) {
+    public User(int userID) {
+        this.userID = userID;
+    }
+
+    public User(int userID, String userName, String phone, String accountName, String accountPass, int user_role) {
         this.userID = userID;
         this.userName = userName;
         this.phone = phone;
         this.accountName = accountName;
         this.accountPass = accountPass;
-        this.status = status;
+        this.user_role = user_role;
+    }
+
+    public User(String userName, String phone, String accountName, String accountPass, int user_role) {
+        this.userName = userName;
+        this.phone = phone;
+        this.accountName = accountName;
+        this.accountPass = accountPass;
         this.user_role = user_role;
     }
 
@@ -69,14 +75,6 @@ public class User {
 
     public void setAccountPass(String accountPass) {
         this.accountPass = accountPass;
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
     }
 
     public int getUser_role() {

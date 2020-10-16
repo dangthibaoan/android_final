@@ -3,17 +3,17 @@ package com.example.ezorder.Model;
 public class Table {
     private int tableID;
     private int number;
-    private boolean status;
+    private int status;
 
     public Table() {
     }
 
-    public Table(int number, boolean status) {
+    public Table(int number, int status) {
         this.number = number;
         this.status = status;
     }
 
-    public Table(int tableID, int number, boolean status) {
+    public Table(int tableID, int number, int status) {
         this.tableID = tableID;
         this.number = number;
         this.status = status;
@@ -35,11 +35,11 @@ public class Table {
         this.number = number;
     }
 
-    public boolean isStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 }

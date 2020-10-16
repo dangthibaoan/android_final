@@ -2,6 +2,8 @@ package com.example.ezorder.Adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,18 +11,17 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.ezorder.Model.Food;
 import com.example.ezorder.R;
 
 import java.util.List;
 
 public class FoodFragmentAdapter extends BaseAdapter {
-    private Context context;
-    private int img;
-    private List<String> list;
+    Context context;
+    List<Food> list;
 
-    public FoodFragmentAdapter(Context context, int img, List<String> list) {
+    public FoodFragmentAdapter(Context context, List<Food> list) {
         this.context = context;
-        this.img = img;
         this.list = list;
     }
 
@@ -36,20 +37,48 @@ public class FoodFragmentAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
+    }
+
+    static class ViewHolder {
+        TextView txtFoodID, txtFoodName, txtFoodPrice, txtFoodUnit, txtFoodStatus;
+        ImageView imgFood;
+
+        public ViewHolder(View base) {
+            txtFoodID = base.findViewById(R.id.txtFoodID);
+            txtFoodName = base.findViewById(R.id.txtFoodName);
+            txtFoodPrice = base.findViewById(R.id.txtFoodPrice);
+            txtFoodUnit = base.findViewById(R.id.txtFoodUnit);
+            txtFoodStatus = base.findViewById(R.id.txtFoodStatus);
+            imgFood = base.findViewById(R.id.imgFood);
+        }
     }
 
     @SuppressLint({"InflateParams", "ViewHolder"})
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        convertView = inflater.inflate(R.layout.food_item, null);
+        View view = convertView;
+        ViewHolder viewHolder;
+        if (convertView == null) {
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            view = inflater.inflate(R.layout.food_item, null);
+            viewHolder = new ViewHolder(view);
+            view.setTag(viewHolder);
+        } else {
+            viewHolder = (ViewHolder) view.getTag();
+        }
 
-        ImageView imageView = convertView.findViewById(R.id.imgFood);
-        imageView.setImageResource(img);
-        TextView textView = convertView.findViewById(R.id.foodName);
-        textView.setText(list.get(position));
+        Food food = list.get(position);
+        viewHolder.txtFoodID.setText(String.valueOf(food.getFoodID()));
+        viewHolder.txtFoodName.setText(food.getFoodName());
+        viewHolder.txtFoodPrice.setText(String.valueOf(food.getFoodPrice()));
+        viewHolder.txtFoodUnit.setText(food.getFoodUnit());
+        if (food.getFoodStatus() == 1) {
+            viewHolder.txtFoodStatus.setText(R.string.food_ready);
+        } else viewHolder.txtFoodStatus.setText(R.string.food_empty);
 
-        return convertView;
+        Bitmap bitmap = BitmapFactory.decodeByteArray(food.getFoodImage(), 0, food.getFoodImage().length);
+        viewHolder.imgFood.setImageBitmap(bitmap);
+        return view;
     }
 }

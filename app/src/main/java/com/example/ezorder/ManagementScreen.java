@@ -1,15 +1,17 @@
 package com.example.ezorder;
 
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.os.Bundle;
-import android.view.MenuItem;
-
 import com.example.ezorder.Fragment.FoodFragment;
+import com.example.ezorder.Fragment.RoleFragment;
 import com.example.ezorder.Fragment.TableFragment;
 import com.example.ezorder.Fragment.UserFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -25,6 +27,7 @@ public class ManagementScreen extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottomMenu);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @SuppressLint("NonConstantResourceId")
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment;
@@ -44,6 +47,11 @@ public class ManagementScreen extends AppCompatActivity {
                         loadFragment(fragment);
                         return true;
                     }
+                    case R.id.menu_role: {
+                        fragment = new RoleFragment();
+                        loadFragment(fragment);
+                        return true;
+                    }
                 }
                 return false;
             }
@@ -54,6 +62,7 @@ public class ManagementScreen extends AppCompatActivity {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.frame, fragment);
+        transaction.addToBackStack(null);
         transaction.commit();
     }
 

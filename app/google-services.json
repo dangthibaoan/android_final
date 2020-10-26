@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "233143375606",
+    "firebase_url": "https://app-1-38961.firebaseio.com",
+    "project_id": "app-1-38961",
+    "storage_bucket": "app-1-38961.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:233143375606:android:9f03bebe2a9cb6ce14bed7",
+        "android_client_info": {
+          "package_name": "com.example.ezorder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "233143375606-acufvpntest219rfgoh5m5mknee13hem.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPzi1hw913RHcBTFoqzgPL47tSocbeJo4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "233143375606-acufvpntest219rfgoh5m5mknee13hem.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     TextView txtOrder, txtFood, txtChef;
-    DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

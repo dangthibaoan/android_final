@@ -9,13 +9,13 @@
         android:id="@+id/eUserName"
         android:layout_width="@dimen/input_width"
         android:layout_height="@dimen/input_height"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="80dp"
         android:autofillHints="@string/UserName"
         android:ems="10"
         android:hint="@string/UserName"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -70,5 +70,19 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eAccountPass" />
+
+    <EditText
+        android:id="@+id/edtUserID"
+        android:layout_width="@dimen/input_width"
+        android:layout_height="@dimen/input_height"
+        android:layout_marginBottom="16dp"
+        android:autofillHints="@string/UserID"
+        android:ems="10"
+        android:hint="@string/UserID"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/eUserName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

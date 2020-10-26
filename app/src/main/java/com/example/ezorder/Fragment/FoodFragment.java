@@ -14,6 +14,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,35 +26,45 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.ezorder.Adapter.FoodFragmentAdapter;
-import com.example.ezorder.DBHelper;
 import com.example.ezorder.Model.Food;
 import com.example.ezorder.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.switchmaterial.SwitchMaterial;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 
 public class FoodFragment extends Fragment {
+    private static final String TAG = "Food FRG";
+
     ListView listView;
     List<Food> list;
     FloatingActionButton floatingActionButton;
-    EditText eName, ePrice, eUnit, eNameDetail, ePriceDetail, eUnitDetail;
+    EditText eID, eName, ePrice, eUnit, eNameDetail, ePriceDetail, eUnitDetail;
     TextView txtFoodIDDetail;
     SwitchMaterial swFoodStatus, swFoodStatusDetail;
     ImageView imageFood, imageFoodDetail;
     Button btnshot, btnchoose, btnShotDetail, btnChooseDetail;
     Uri uri;
-    DBHelper helper;
     FoodFragmentAdapter adapter;
     int foodIDs;
+    FirebaseFirestore db;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,15 +72,39 @@ public class FoodFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_food, container, false);
         listView = view.findViewById(R.id.food_fragment_listview);
         floatingActionButton = view.findViewById(R.id.fb_add_food);
-        helper = new DBHelper(getActivity());
-        list = helper.getAllFood();
-        adapter = new FoodFragmentAdapter(getActivity(), list);
-        listView.setAdapter(adapter);
+        db = FirebaseFirestore.getInstance();
+        checkMiss();
+
+        db.collection("Food")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        list = new ArrayList<>();
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot snapshot : task.getResult()) {
+                                Food food = snapshot.toObject(Food.class);
+                                list.add(food);
+                            }
+                            adapter = new FoodFragmentAdapter(getActivity(), list);
+                            listView.setAdapter(adapter);
+                        } else {
+                            Log.d(TAG, "onComplete: Load food data fail " + task.getException());
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d(TAG, "onFailure: Load data fail" + e);
+                    }
+                });
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Food food = (Food) parent.getItemAtPosition(position);
+                foodIDs = food.getFoodID();
                 LayoutInflater inflater = (LayoutInflater) Objects.requireNonNull(getActivity()).getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 @SuppressLint("InflateParams") View view2 = inflater.inflate(R.layout.dialog_food_detail, null);
 
@@ -85,7 +121,7 @@ public class FoodFragment extends Fragment {
                 String fName = food.getFoodName();
                 int fPrice = food.getFoodPrice();
                 String fUnit = food.getFoodUnit();
-                byte[] fImage = food.getFoodImage();
+                String fImage = food.getFoodImage();
                 int fStatus = food.getFoodStatus();
 
                 txtFoodIDDetail.setText(String.valueOf(fID));
@@ -93,7 +129,8 @@ public class FoodFragment extends Fragment {
                 ePriceDetail.setText(String.valueOf(fPrice));
                 eUnitDetail.setText(fUnit);
                 swFoodStatusDetail.setChecked(fStatus == 1);
-                Bitmap bitmap = BitmapFactory.decodeByteArray(fImage, 0, fImage.length);
+                byte[] arrs = Base64.decode(fImage, Base64.DEFAULT);
+                Bitmap bitmap = BitmapFactory.decodeByteArray(arrs, 0, arrs.length);
                 imageFoodDetail.setImageBitmap(bitmap);
 
                 btnShotDetail.setOnClickListener(new View.OnClickListener() {
@@ -119,7 +156,7 @@ public class FoodFragment extends Fragment {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 builder.setTitle(R.string.food_detail)
                         .setView(view2)
-                        .setPositiveButton("Sửa", new DialogInterface.OnClickListener() {
+                        .setPositiveButton(R.string.button_Update, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 foodIDs = Integer.parseInt(txtFoodIDDetail.getText().toString().trim());
@@ -139,17 +176,49 @@ public class FoodFragment extends Fragment {
                                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
                                 byte[] arays = byteArrayOutputStream.toByteArray();
                                 bitmap.recycle();
-
-                                Food food = new Food(foodIDs, foodName, foodPrice, arays, foodUnit, foodStatus);
-                                helper.updateFood(food);
+                                String imageString = Base64.encodeToString(arays, Base64.DEFAULT);
+                                Food food = new Food(foodIDs, foodName, foodPrice, imageString, foodUnit, foodStatus);
+                                db.collection("Food")
+                                        .document(String.valueOf(foodIDs))
+                                        .update("foodName", foodName,
+                                                "foodPrice", foodPrice,
+                                                "foodUnit", foodUnit,
+                                                "foodStatus", foodStatus,
+                                                "foodImage", imageString)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                Log.d(TAG, "onSuccess: Update food success");
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Log.d(TAG, "onFailure: Update food error " + e);
+                                            }
+                                        });
 
                             }
                         })
-                        .setNegativeButton("Xóa", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(R.string.button_Delete, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 Food food = new Food(foodIDs);
-                                helper.deleteFood(food);
+                                db.collection("Food")
+                                        .document(String.valueOf(foodIDs))
+                                        .delete()
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                Log.d(TAG, "onSuccess: Delete food success");
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Log.d(TAG, "onFailure: Delete food error " + e);
+                                            }
+                                        });
                             }
                         });
                 AlertDialog dialog = builder.create();
@@ -163,6 +232,7 @@ public class FoodFragment extends Fragment {
                 LayoutInflater inflater = (LayoutInflater) Objects.requireNonNull(getActivity()).getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 @SuppressLint("InflateParams") View view1 = inflater.inflate(R.layout.dialog_add_food, null);
 
+                eID = view1.findViewById(R.id.edtFoodID);
                 eName = view1.findViewById(R.id.edtFoodName);
                 ePrice = view1.findViewById(R.id.edtFoodPrice);
                 eUnit = view1.findViewById(R.id.edtFoodUnit);
@@ -170,8 +240,7 @@ public class FoodFragment extends Fragment {
                 imageFood = view1.findViewById(R.id.FoodImage);
                 btnshot = view1.findViewById(R.id.btnShot);
                 btnchoose = view1.findViewById(R.id.btnChoose);
-                checkMiss();
-                list = helper.getAllFood();
+
 
                 btnshot.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -185,6 +254,7 @@ public class FoodFragment extends Fragment {
                     }
                 });
 
+                // Continue
                 btnchoose.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -199,6 +269,7 @@ public class FoodFragment extends Fragment {
                         .setPositiveButton(R.string.button_OK, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                int foodID = Integer.parseInt(eID.getText().toString().trim());
                                 String foodName = eName.getText().toString().trim();
                                 int foodPrice = Integer.parseInt(ePrice.getText().toString().trim());
                                 String foodUnit = eUnit.getText().toString().trim();
@@ -208,14 +279,30 @@ public class FoodFragment extends Fragment {
                                 } else {
                                     foodStatus = 0;
                                 }
+
                                 BitmapDrawable bitmapDrawable = (BitmapDrawable) imageFood.getDrawable();
                                 Bitmap bitmap = bitmapDrawable.getBitmap();
                                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
                                 byte[] arays = byteArrayOutputStream.toByteArray();
-
-                                Food food = new Food(foodName, foodPrice, arays, foodUnit, foodStatus);
-                                helper.addFood(food);
+                                bitmap.recycle();
+                                String imageString = Base64.encodeToString(arays, Base64.DEFAULT);
+                                Food food = new Food(foodID, foodName, foodPrice, imageString, foodUnit, foodStatus);
+                                db.collection("Food")
+                                        .document(String.valueOf(food.getFoodID()))
+                                        .set(food)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                Log.d(TAG, "onSuccess: Add food success");
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Log.d(TAG, "onFailure: Add food error " + e);
+                                            }
+                                        });
                             }
                         })
                         .setNegativeButton(R.string.button_Cancel, new DialogInterface.OnClickListener() {

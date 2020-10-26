@@ -8,7 +8,7 @@
         android:id="@+id/edtFoodName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="84dp"
         android:autofillHints="@string/food_name"
         android:ems="10"
         android:hint="@string/food_name"
@@ -87,4 +87,19 @@
         android:background="@drawable/baseline_folder_open_black_24dp"
         app:layout_constraintStart_toEndOf="@+id/FoodImage"
         app:layout_constraintTop_toBottomOf="@+id/btnShot" />
+
+    <EditText
+        android:id="@+id/edtFoodID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:autofillHints="@string/food_id"
+        android:ems="10"
+        android:hint="@string/food_id"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/edtFoodName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

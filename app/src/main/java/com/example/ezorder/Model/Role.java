@@ -36,8 +36,10 @@ public class Role {
         this.roleName = roleName;
     }
 
+    @SuppressWarnings("NullableProblems")
     @Override
     public String toString() {
         return roleName;
     }
+
 }

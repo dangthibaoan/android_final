@@ -6,7 +6,7 @@ public class User {
     private String phone;
     private String accountName;
     private String accountPass;
-    private int user_role;
+    private String userRole;
 
     public User() {
     }
@@ -20,21 +20,21 @@ public class User {
         this.userID = userID;
     }
 
-    public User(int userID, String userName, String phone, String accountName, String accountPass, int user_role) {
+    public User(int userID, String userName, String phone, String accountName, String accountPass, String userRole) {
         this.userID = userID;
         this.userName = userName;
         this.phone = phone;
         this.accountName = accountName;
         this.accountPass = accountPass;
-        this.user_role = user_role;
+        this.userRole = userRole;
     }
 
-    public User(String userName, String phone, String accountName, String accountPass, int user_role) {
+    public User(String userName, String phone, String accountName, String accountPass, String userRole) {
         this.userName = userName;
         this.phone = phone;
         this.accountName = accountName;
         this.accountPass = accountPass;
-        this.user_role = user_role;
+        this.userRole = userRole;
     }
 
     public int getUserID() {
@@ -77,11 +77,11 @@ public class User {
         this.accountPass = accountPass;
     }
 
-    public int getUser_role() {
-        return user_role;
+    public String getUserRole() {
+        return userRole;
     }
 
-    public void setUser_role(int user_role) {
-        this.user_role = user_role;
+    public void setUserRole(String userRole) {
+        this.userRole = userRole;
     }
 }

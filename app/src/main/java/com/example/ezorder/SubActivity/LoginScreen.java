@@ -8,13 +8,11 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.ezorder.DBHelper;
 import com.example.ezorder.MainActivity;
 import com.example.ezorder.R;
 
 public class LoginScreen extends AppCompatActivity {
     Button btnLogin;
-    DBHelper helper;
     EditText eUsername, ePassword;
     Button buttonLogin;
 

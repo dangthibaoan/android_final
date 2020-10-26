@@ -39,12 +39,10 @@ public class RoleFragmentAdapter extends BaseAdapter {
     }
 
     static class ViewHolder {
-        TextView tRoleID;
         TextView tRoleName;
         ImageView imgRole;
 
         public ViewHolder(View base) {
-            tRoleID = base.findViewById(R.id.txtRoleID);
             tRoleName = base.findViewById(R.id.txtRoleName);
             imgRole = base.findViewById(R.id.imgUserRole);
         }
@@ -65,7 +63,6 @@ public class RoleFragmentAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
 
-        viewHolder.tRoleID.setText(String.valueOf(list.get(position).getRoleID()));
         viewHolder.tRoleName.setText(list.get(position).getRoleName());
         viewHolder.imgRole.setImageResource(R.drawable.baseline_admin_panel_settings_black_24dp);
         return view;

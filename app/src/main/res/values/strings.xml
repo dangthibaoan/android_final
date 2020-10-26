@@ -14,6 +14,8 @@
     <!--  TODO : Other-->
     <string name="button_Cancel">Cancel</string>
     <string name="button_OK">OK</string>
+    <string name="button_Update">Sửa</string>
+    <string name="button_Delete">Xóa</string>
 
     <!--  TODO : User  -->
     <string name="UserID">User ID</string>

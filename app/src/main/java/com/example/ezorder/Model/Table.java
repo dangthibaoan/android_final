@@ -1,7 +1,7 @@
 package com.example.ezorder.Model;
 
 public class Table {
-    private int tableID;
+    private String tableID;
     private int number;
     private int status;
 
@@ -13,17 +13,17 @@ public class Table {
         this.status = status;
     }
 
-    public Table(int tableID, int number, int status) {
+    public Table(String tableID, int number, int status) {
         this.tableID = tableID;
         this.number = number;
         this.status = status;
     }
 
-    public int getTableID() {
+    public String getTableID() {
         return tableID;
     }
 
-    public void setTableID(int tableID) {
+    public void setTableID(String tableID) {
         this.tableID = tableID;
     }
 

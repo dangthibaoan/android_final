@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,7 +78,8 @@ public class FoodFragmentAdapter extends BaseAdapter {
             viewHolder.txtFoodStatus.setText(R.string.food_ready);
         } else viewHolder.txtFoodStatus.setText(R.string.food_empty);
 
-        Bitmap bitmap = BitmapFactory.decodeByteArray(food.getFoodImage(), 0, food.getFoodImage().length);
+        byte[] arrs = Base64.decode(food.getFoodImage(), Base64.DEFAULT);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(arrs, 0, arrs.length);
         viewHolder.imgFood.setImageBitmap(bitmap);
         return view;
     }

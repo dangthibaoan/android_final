@@ -60,7 +60,7 @@ public class TableFragmentAdapter extends BaseAdapter {
             return convertView;
         }
         holder.imageView.setImageResource(R.drawable.ic_dinner_table);
-        holder.tableID.setText(String.valueOf(list.get(position).getTableID()));
+        holder.tableID.setText(list.get(position).getTableID());
         holder.tableNumber.setText(String.valueOf(list.get(position).getNumber()));
         if (list.get(position).getStatus() == 1) {
             holder.tableStatus.setText(R.string.table_full);

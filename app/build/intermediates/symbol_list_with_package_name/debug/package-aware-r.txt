@@ -1916,7 +1916,9 @@ id lvTable
 id lv_role
 id masked
 id media_actions
+id menu_bill
 id menu_food
+id menu_order
 id menu_role
 id menu_table
 id menu_user
@@ -2311,6 +2313,7 @@ layout text_view_with_theme_line_height
 layout text_view_without_line_height
 layout user_item
 menu bottom_menu
+menu layout_popup_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description

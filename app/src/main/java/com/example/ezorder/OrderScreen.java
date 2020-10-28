@@ -5,9 +5,12 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -82,22 +85,46 @@ public class OrderScreen extends AppCompatActivity {
                 tbID = table.getTableID();
                 tNum = table.getNumber();
                 status = table.getStatus();
-                orderID++;
                 if (status==0){
                     Toast.makeText(getApplicationContext(),"Gọi món cho bàn " + tNum,Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(OrderScreen.this, Order_Sub_1.class);
-                    intent.putExtra("tblID",tbID);
-                    intent.putExtra("tbNum", tNum);
-                    intent.putExtra("status", status);
-                    intent.putExtra("orderID", orderID);
-                    //startActivityForResult(intent,111);
-                    startActivity(intent);
+                    order();
+                    orderID++;
                 }
-                else{ //chưa có class của bill
-
+                else{
+                    //gọi thêm món hoặc show bill
+                    showPopupMenu(OrderScreen.this, view);
                 }
             }
         });
+    }
+
+    private void showPopupMenu(Activity act, View view){
+        PopupMenu popupMenu = new PopupMenu(act,view);
+        popupMenu.getMenuInflater().inflate(R.menu.layout_popup_menu, popupMenu.getMenu());
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.menu_order:
+                        Toast.makeText(getApplicationContext(),"Gọi thêm món cho bàn " + tNum,Toast.LENGTH_LONG).show();
+                        order();
+                    case R.id.menu_bill:
+                        Toast.makeText(getApplicationContext(),"Hiện hóa đơn của bàn " + tNum,Toast.LENGTH_LONG).show();
+                        //show bill
+                }
+                return true;
+            }
+        });
+        popupMenu.show();
+    }
+
+    void order(){
+        Intent intent = new Intent(OrderScreen.this, Order_Sub_1.class);
+        intent.putExtra("tblID",tbID);
+        intent.putExtra("tbNum", tNum);
+        intent.putExtra("status", status);
+        intent.putExtra("orderID", orderID);
+        startActivity(intent);
     }
 
 }

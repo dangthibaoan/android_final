@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\SETUP\\AndroidStudioProjects\\android_final\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pl\\values-pl.xml",
+            "outputFile": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pl\\values-pl.xml",
             "map": [
                 {
                     "source": "C:\\Users\\baoan\\.gradle\\caches\\transforms-2\\files-2.1\\d9faaaf26fc140f365e3b207d6db990b\\jetified-play-services-base-17.0.0\\res\\values-pl\\values.xml",

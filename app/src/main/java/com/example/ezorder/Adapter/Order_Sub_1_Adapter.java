@@ -2,6 +2,9 @@ package com.example.ezorder.Adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,18 +12,17 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.ezorder.Model.Food;
 import com.example.ezorder.R;
 
 import java.util.List;
 
 public class Order_Sub_1_Adapter extends BaseAdapter {
     private final Context context;
-    private final int img;
-    private final List<String> list;
+    private final List<Food> list;
 
-    public Order_Sub_1_Adapter(Context context, int img, List<String> list) {
+    public Order_Sub_1_Adapter(Context context, List<Food> list) {
         this.context = context;
-        this.img = img;
         this.list = list;
     }
 
@@ -45,10 +47,15 @@ public class Order_Sub_1_Adapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         convertView = inflater.inflate(R.layout.choose_food, null);
 
-        ImageView imageView = convertView.findViewById(R.id.choose_food_image);
-        imageView.setImageResource(img);
+        Food food = (Food) getItem(position);
+        String s = String.format("%s\n%s / %s",food.getFoodName(),food.getFoodPrice(),food.getFoodUnit());
         TextView textView = convertView.findViewById(R.id.choose_food_title);
-        textView.setText(list.get(position));
+        textView.setText(s);
+
+        byte[] arrs = Base64.decode(food.getFoodImage(), Base64.DEFAULT);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(arrs, 0, arrs.length);
+        ImageView imageView = convertView.findViewById(R.id.choose_food_image);
+        imageView.setImageBitmap(bitmap);
 
         return convertView;
     }

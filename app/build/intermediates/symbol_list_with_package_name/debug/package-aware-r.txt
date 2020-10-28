@@ -1827,8 +1827,10 @@ id edtFoodPrice
 id edtFoodPrice2
 id edtFoodUnit
 id edtFoodUnit2
+id edtGhichu
 id edtNameRole
 id edtRoleID
+id edtSoluong
 id edtTableID
 id edtTableNumber
 id edtUserID
@@ -2230,6 +2232,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout dialog_add_food
+layout dialog_add_food_in_order
 layout dialog_add_role
 layout dialog_add_table
 layout dialog_add_user

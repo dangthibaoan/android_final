@@ -39,7 +39,7 @@
 
     <!--   TODO : Table -->
     <string name="table_ID">Mã bàn</string>
-    <string name="table_num">Số lượng</string>
+    <string name="table_num">Bàn số</string>
     <string name="table_status">Trạng thái</string>
     <string name="add_table">Thêm bàn</string>
     <string name="table_full">Đầy</string>

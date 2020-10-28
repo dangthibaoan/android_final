@@ -138,6 +138,7 @@ public class Order_Sub_1 extends AppCompatActivity {
                                 data.put("OrderFood",order.getOrder_Food_FK());
                                 data.put("OrderNote",order.getOrderNote());
                                 data.put("OrderQuantity",order.getSoLuong());
+                                data.put("FoodStatus",0);
 
                                 db.collection("Table").document(tblID)
                                         .collection("OrderID").document(String.valueOf(order.getOrderID()))

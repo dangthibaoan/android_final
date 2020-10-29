@@ -41,8 +41,8 @@ com/example/ezorder/BuildConfig.java
 com/example/ezorder/Adapter/RoleFragmentAdapter.java
  com.example.ezorder.Adapter.RoleFragmentAdapter
  com.example.ezorder.Adapter.RoleFragmentAdapter$ViewHolder
-com/example/ezorder/Adapter/OrderAdapter.java
- com.example.ezorder.Adapter.OrderAdapter
+com/example/ezorder/Adapter/Order_Sub_1_Adapter.java
+ com.example.ezorder.Adapter.Order_Sub_1_Adapter
 com/example/ezorder/Adapter/ChefAdapter.java
  com.example.ezorder.Adapter.ChefAdapter
 com/example/ezorder/Model/Table.java
@@ -57,8 +57,17 @@ com/example/ezorder/Model/Bill.java
 com/example/ezorder/ManagementScreen.java
  com.example.ezorder.ManagementScreen
  com.example.ezorder.ManagementScreen$1
-com/example/ezorder/Adapter/Order_Sub_1_Adapter.java
- com.example.ezorder.Adapter.Order_Sub_1_Adapter
+com/example/ezorder/SubActivity/Order_Sub_1.java
+ com.example.ezorder.SubActivity.Order_Sub_1
+ com.example.ezorder.SubActivity.Order_Sub_1$1
+ com.example.ezorder.SubActivity.Order_Sub_1$2
+ com.example.ezorder.SubActivity.Order_Sub_1$3
+ com.example.ezorder.SubActivity.Order_Sub_1$3$1
+ com.example.ezorder.SubActivity.Order_Sub_1$3$2
+ com.example.ezorder.SubActivity.Order_Sub_1$3$2$1
+ com.example.ezorder.SubActivity.Order_Sub_1$3$2$2
+ com.example.ezorder.SubActivity.Order_Sub_1$3$2$3
+ com.example.ezorder.SubActivity.Order_Sub_1$3$2$4
 com/example/ezorder/Fragment/RoleFragment.java
  com.example.ezorder.Fragment.RoleFragment
  com.example.ezorder.Fragment.RoleFragment$1
@@ -114,17 +123,8 @@ com/example/ezorder/MainActivity.java
  com.example.ezorder.MainActivity$1
  com.example.ezorder.MainActivity$2
  com.example.ezorder.MainActivity$3
-com/example/ezorder/SubActivity/Order_Sub_1.java
- com.example.ezorder.SubActivity.Order_Sub_1
- com.example.ezorder.SubActivity.Order_Sub_1$1
- com.example.ezorder.SubActivity.Order_Sub_1$2
- com.example.ezorder.SubActivity.Order_Sub_1$3
- com.example.ezorder.SubActivity.Order_Sub_1$3$1
- com.example.ezorder.SubActivity.Order_Sub_1$3$2
- com.example.ezorder.SubActivity.Order_Sub_1$3$2$1
- com.example.ezorder.SubActivity.Order_Sub_1$3$2$2
- com.example.ezorder.SubActivity.Order_Sub_1$3$2$3
- com.example.ezorder.SubActivity.Order_Sub_1$3$2$4
+com/example/ezorder/Adapter/OrderAdapter.java
+ com.example.ezorder.Adapter.OrderAdapter
 com/example/ezorder/OrderScreen.java
  com.example.ezorder.OrderScreen
  com.example.ezorder.OrderScreen$1

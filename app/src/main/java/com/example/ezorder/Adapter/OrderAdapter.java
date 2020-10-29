@@ -59,7 +59,7 @@ public class OrderAdapter extends BaseAdapter {
         }
         else{
             textView.setTextColor(Color.RED);
-            s+= " - Đầy";
+            s+= " - Đã gọi món";
         }
         textView.setText(s);
         imageView.setImageResource(images);

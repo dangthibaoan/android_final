@@ -48,7 +48,7 @@ public class Order_Sub_1_Adapter extends BaseAdapter {
         convertView = inflater.inflate(R.layout.choose_food, null);
 
         Food food = (Food) getItem(position);
-        String s = String.format("%s\n%s / %s",food.getFoodName(),food.getFoodPrice(),food.getFoodUnit());
+        String s = String.format("%s\n%s đ/ %s",food.getFoodName(),food.getFoodPrice(),food.getFoodUnit());
         TextView textView = convertView.findViewById(R.id.choose_food_title);
         textView.setText(s);
 

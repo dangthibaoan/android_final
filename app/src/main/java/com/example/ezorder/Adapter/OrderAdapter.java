@@ -52,7 +52,7 @@ public class OrderAdapter extends BaseAdapter {
         TextView textView = convertView.findViewById(R.id.textView);
         ImageView imageView = convertView.findViewById(R.id.imageView);
 
-        String s = String.format("Bàn %d", tbl.getNumber());
+        String s = "Bàn "+ tbl.getNumber();
         if (tbl.getStatus()==0){
             textView.setTextColor(Color.BLACK);
             s+=" - Trống";

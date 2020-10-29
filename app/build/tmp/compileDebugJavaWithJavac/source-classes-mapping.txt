@@ -109,6 +109,11 @@ com/example/ezorder/Fragment/UserFragment.java
  com.example.ezorder.Fragment.UserFragment$3$4
  com.example.ezorder.Fragment.UserFragment$3$4$1
  com.example.ezorder.Fragment.UserFragment$3$4$2
+com/example/ezorder/MainActivity.java
+ com.example.ezorder.MainActivity
+ com.example.ezorder.MainActivity$1
+ com.example.ezorder.MainActivity$2
+ com.example.ezorder.MainActivity$3
 com/example/ezorder/SubActivity/Order_Sub_1.java
  com.example.ezorder.SubActivity.Order_Sub_1
  com.example.ezorder.SubActivity.Order_Sub_1$1
@@ -129,8 +134,3 @@ com/example/ezorder/OrderScreen.java
  com.example.ezorder.OrderScreen$2$2
  com.example.ezorder.OrderScreen$2$3
  com.example.ezorder.OrderScreen$3
-com/example/ezorder/MainActivity.java
- com.example.ezorder.MainActivity
- com.example.ezorder.MainActivity$1
- com.example.ezorder.MainActivity$2
- com.example.ezorder.MainActivity$3

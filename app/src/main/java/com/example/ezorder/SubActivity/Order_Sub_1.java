@@ -50,6 +50,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Random;
 
 public class Order_Sub_1 extends AppCompatActivity {
     private static final String TAG = "Order Food";
@@ -67,7 +68,7 @@ public class Order_Sub_1 extends AppCompatActivity {
     int foodIDs;
     EditText etSoluong, etGhichu;
     TextView txtFoodName;
-    int orderID, orderNumber;
+    int orderNumber, orderID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,9 +80,11 @@ public class Order_Sub_1 extends AppCompatActivity {
         tblID = intent.getStringExtra("tblID");
         soBan = intent.getIntExtra("tbNum",0);
         status = intent.getIntExtra("status", 0);
-        orderID = intent.getIntExtra("orderID", 0);
         orderNumber = intent.getIntExtra("orderNumber", 0);
         documentID = intent.getStringExtra("DocumentID");
+
+        Random random = new Random();
+        orderID = random.nextInt();
 
         db = FirebaseFirestore.getInstance();
         gridView = findViewById(R.id.choose_food_grview);
@@ -139,16 +142,17 @@ public class Order_Sub_1 extends AppCompatActivity {
                                 Date now = new Date(System.currentTimeMillis());
 
                                 final Order orderDetails = new Order(orderID,sl,now,note,foodIDs,1,0,tblID);
-                                foodList.add(orderDetails);
+//                                foodList.add(orderDetails);
                                 orderID++;
 
-                                data = new HashMap<>();
-                                data.put("DocumentID",documentID);
-                                data.put("SoMonDuocGoi",orderID);
-                                data.put("FoodList", foodList);
+//                                data = new HashMap<>();
+//                                data.put("DocumentID",documentID);
+//                                data.put("SoMonDuocGoi",orderID);
+//                                data.put("FoodList", foodList);
 
                                 db.collection("Order").document(documentID)
-                                        .set(data, SetOptions.merge())
+                                        .collection("OrderID").document(String.valueOf(orderID))
+                                        .set(orderDetails, SetOptions.merge())
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void aVoid) {

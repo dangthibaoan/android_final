@@ -43,8 +43,8 @@ public class OrderScreen extends AppCompatActivity {
     private static final String TAG = "Dinner Table";
 
     GridView gridView;
-    int status, tNum, orderID=0;
-    String tbID, documentID, a;
+    int status, tNum;
+    String tbID, documentID;
     List<Table> tableList;
     OrderAdapter adapter;
     FirebaseFirestore db;
@@ -103,7 +103,7 @@ public class OrderScreen extends AppCompatActivity {
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-                                    Toast.makeText(getApplicationContext(),"Gọi món cho bàn "+tbID+"\ndocumentID = " + documentID,Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(),"Gọi món cho bàn "+tNum+"\ndocumentID = " + documentID,Toast.LENGTH_LONG).show();
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
@@ -130,25 +130,6 @@ public class OrderScreen extends AppCompatActivity {
                                     }
                                 }
                             });
-                    // lấy giá trị số món đã gọi để thêm order mới về sau
-//                    db.collection("Order").document(documentID)
-//                            .get()
-//                            .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//                                @Override
-//                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                                    if (task.isSuccessful()) {
-//                                        DocumentSnapshot document = task.getResult();
-//                                        if (document.exists()) {
-//                                            a = document.get("SoMonDuocGoi").toString();
-//                                        } else {
-//                                            Log.d(TAG, "No such document");
-//                                        }
-//                                    }
-//                                }
-//                            });
-//                    orderID = Integer.parseInt(a);
-//                    Toast.makeText(getApplicationContext(),"Đã có " + orderID+" món được gọi",Toast.LENGTH_LONG).show();
-                    //gọi thêm món hoặc show bill
                     showPopupMenu(OrderScreen.this, view);
                 }
             }
@@ -182,7 +163,6 @@ public class OrderScreen extends AppCompatActivity {
         intent.putExtra("tblID",tbID);
         intent.putExtra("tbNum", tNum);
         intent.putExtra("status", status);
-        intent.putExtra("orderID", orderID);
         intent.putExtra("DocumentID", documentID);
         intent.putExtra("orderNumber", orderNumber);
         startActivity(intent);

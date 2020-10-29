@@ -8,28 +8,28 @@
         "source": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\src\\main\\res\\drawable-anydpi\\ic_edit.xml"
     },
     {
-        "merged": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_baseline_folder_open_black_24dp.png.flat",
-        "source": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\src\\main\\res\\drawable-xxhdpi\\baseline_folder_open_black_24dp.png"
+        "merged": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_table.png.flat",
+        "source": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\src\\main\\res\\drawable-xxhdpi\\ic_table.png"
     },
     {
         "merged": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
         "source": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_table.png.flat",
-        "source": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\src\\main\\res\\drawable-xxhdpi\\ic_table.png"
+        "merged": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_baseline_folder_open_black_24dp.png.flat",
+        "source": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\src\\main\\res\\drawable-xxhdpi\\baseline_folder_open_black_24dp.png"
     },
     {
         "merged": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_table.png.flat",
         "source": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\src\\main\\res\\drawable-hdpi\\ic_table.png"
     },
     {
-        "merged": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_user.xml.flat",
-        "source": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\src\\main\\res\\layout\\fragment_user.xml"
-    },
-    {
         "merged": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
         "source": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_user.xml.flat",
+        "source": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\src\\main\\res\\layout\\fragment_user.xml"
     },
     {
         "merged": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_baseline_add_black_24dp.png.flat",
@@ -68,12 +68,12 @@
         "source": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\src\\main\\res\\drawable-xxhdpi\\ic_edit.png"
     },
     {
-        "merged": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
-    },
-    {
         "merged": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_table_slot.png.flat",
         "source": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\src\\main\\res\\drawable-hdpi\\ic_table_slot.png"
+    },
+    {
+        "merged": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
         "merged": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_table.png.flat",
@@ -144,12 +144,12 @@
         "source": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\src\\main\\res\\layout\\dialog_add_role.xml"
     },
     {
-        "merged": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
-    },
-    {
         "merged": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_food.png.flat",
         "source": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\src\\main\\res\\drawable-mdpi\\ic_food.png"
+    },
+    {
+        "merged": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
         "merged": "D:\\BTL\\2020-2021\\HKI LDNC\\android_final\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi_ic_table.xml.flat",

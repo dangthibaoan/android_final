@@ -35,9 +35,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.SetOptions;
 
 import java.io.ByteArrayOutputStream;
 import java.sql.Time;
@@ -51,17 +54,20 @@ import java.util.Objects;
 public class Order_Sub_1 extends AppCompatActivity {
     private static final String TAG = "Order Food";
 
+    Map<String, Object> data;
+
+    String documentID;
     GridView gridView;
-    int status, tbID, soBan;
+    int status, soBan;
     String tblID;
     List<Food> list;
+    ArrayList<Order> foodList;
     Order_Sub_1_Adapter adapter;
     FirebaseFirestore db;
     int foodIDs;
     EditText etSoluong, etGhichu;
     TextView txtFoodName;
-    int orderID;
-    int orderNumber = 0;//thứ tự món ăn trong 1 order
+    int orderID, orderNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,8 +80,8 @@ public class Order_Sub_1 extends AppCompatActivity {
         soBan = intent.getIntExtra("tbNum",0);
         status = intent.getIntExtra("status", 0);
         orderID = intent.getIntExtra("orderID", 0);
-
-        tbID = Integer.parseInt(tblID.trim());
+        orderNumber = intent.getIntExtra("orderNumber", 0);
+        documentID = intent.getStringExtra("DocumentID");
 
         db = FirebaseFirestore.getInstance();
         gridView = findViewById(R.id.choose_food_grview);
@@ -105,6 +111,8 @@ public class Order_Sub_1 extends AppCompatActivity {
                     }
                 });
 
+        foodList = new ArrayList<>();
+
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -130,26 +138,22 @@ public class Order_Sub_1 extends AppCompatActivity {
                                 String note = etGhichu.getText().toString().trim();
                                 Date now = new Date(System.currentTimeMillis());
 
-                                final Order order = new Order(orderID, orderNumber, now, note,sl, foodIDs, tbID);
-                                orderNumber++;
+                                final Order orderDetails = new Order(orderID,sl,now,note,foodIDs,1,0,tblID);
+                                foodList.add(orderDetails);
+                                orderID++;
 
-                                Map<String, Object> data = new HashMap<>();
-                                data.put("OrderTime",order.getOrderTime());
-                                data.put("OrderFood",order.getOrder_Food_FK());
-                                data.put("OrderNote",order.getOrderNote());
-                                data.put("OrderQuantity",order.getSoLuong());
-                                data.put("FoodStatus",0);
+                                data = new HashMap<>();
+                                data.put("DocumentID",documentID);
+                                data.put("SoMonDuocGoi",orderID);
+                                data.put("FoodList", foodList);
 
-                                db.collection("Table").document(tblID)
-                                        .collection("OrderID").document(String.valueOf(order.getOrderID()))
-                                        .collection("OrderNumber").document(String.valueOf(order.getOrderNumber()))
-                                        .set(data)
+                                db.collection("Order").document(documentID)
+                                        .set(data, SetOptions.merge())
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void aVoid) {
-                                                //Log.d(TAG, "onSuccess: Add order success");
                                                 Toast.makeText(getApplicationContext(),
-                                                        "Đã gọi "+order.getSoLuong()+" "
+                                                        "Đã gọi "+orderDetails.getOrderNumber()+" "
                                                                 + food.getFoodUnit() +" "+ food.getFoodName()
                                                                 + " cho bàn " + soBan,
                                                         Toast.LENGTH_LONG).show();
@@ -161,10 +165,10 @@ public class Order_Sub_1 extends AppCompatActivity {
                                                 Log.d(TAG, "onFailure: " + e.getMessage());
                                             }
                                         });
-
                                 db.collection("Table")
                                         .document(tblID)
-                                        .update("status",1)
+                                        .update("status",1,
+                                                "DocumentID",documentID)
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void aVoid) {

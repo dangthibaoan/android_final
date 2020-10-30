@@ -1973,6 +1973,7 @@ id parentPanel
 id parentRelative
 id parent_matrix
 id password
+id passwordField
 id password_toggle
 id path
 id pathRelative
@@ -2139,6 +2140,7 @@ id userFullName
 id userID
 id user_fragment_listview
 id username
+id usernameField
 id view_offset_helper
 id visible
 id wide

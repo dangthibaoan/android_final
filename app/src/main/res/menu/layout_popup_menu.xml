@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menu_order"
-        android:title="Gọi thêm món" />
+        android:id="@+id/menu_item1"
+        android:title="@string/menu_order_1" />
     <item
-        android:id="@+id/menu_bill"
-        android:title="Hiện hóa đơn thanh toán" />
+        android:id="@+id/menu_item2"
+        android:title="@string/menu_order_2" />
 </menu>

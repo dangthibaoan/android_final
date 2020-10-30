@@ -116,11 +116,11 @@ public class OrderScreen extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.menu_order:
+                    case R.id.menu_item1:
                         Toast.makeText(getApplicationContext(),"Gọi thêm món cho bàn " + tNum,Toast.LENGTH_SHORT).show();
                         order(1);// gọi thêm trong order cũ
                         break;
-                    case R.id.menu_bill:
+                    case R.id.menu_item2:
                         Toast.makeText(getApplicationContext(),"Hiện hóa đơn của bàn " + tNum,Toast.LENGTH_SHORT).show();
                         //show bill
                         break;
@@ -165,7 +165,6 @@ public class OrderScreen extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        Toast.makeText(getApplicationContext(),"Đang tải danh sách bàn ăn",Toast.LENGTH_SHORT).show();
         getListTable();
         super.onResume();
     }

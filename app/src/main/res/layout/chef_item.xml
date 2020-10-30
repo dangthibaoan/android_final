@@ -11,37 +11,48 @@
 
     <ImageView
         android:id="@+id/chef_food_img"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+        android:layout_marginStart="5dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:srcCompat="@drawable/ic_food" />
 
     <TextView
         android:id="@+id/chef_food_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/chef_food_img"
-        android:layout_marginStart="100dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="40dp"
         android:layout_toEndOf="@+id/chef_food_img"
-        android:text="TextView" />
+        android:text="number x foodname" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/chef_food_img"
-        android:layout_marginStart="99dp"
-        android:layout_marginBottom="-1dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="10dp"
         android:layout_toEndOf="@+id/chef_food_img"
-        android:text="Số lượng" />
+        android:text="Note: " />
 
-    <CheckBox
-        android:id="@+id/checkBox"
+    <ImageView
+        android:id="@+id/status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/chef_food_img"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="13dp" />
+        android:layout_marginBottom="20dp"
+        app:srcCompat="@android:drawable/ic_notification_overlay" />
+<!--    <CheckBox-->
+<!--        android:id="@+id/checkBox"-->
+<!--        android:checked="false"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignBottom="@+id/chef_food_img"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_marginEnd="30dp"-->
+<!--        android:layout_marginBottom="20dp" />-->
 
 </RelativeLayout>

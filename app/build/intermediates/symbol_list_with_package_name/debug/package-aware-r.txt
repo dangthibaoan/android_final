@@ -1752,7 +1752,6 @@ id center_horizontal
 id center_vertical
 id chain
 id chains
-id checkBox
 id checkbox
 id checked
 id chef_food_img
@@ -1916,9 +1915,9 @@ id lvTable
 id lv_role
 id masked
 id media_actions
-id menu_bill
 id menu_food
-id menu_order
+id menu_item1
+id menu_item2
 id menu_role
 id menu_table
 id menu_user
@@ -1959,6 +1958,7 @@ id never
 id noScroll
 id none
 id normal
+id note
 id notification_background
 id notification_main_column
 id notification_main_column_container
@@ -2046,6 +2046,7 @@ id startHorizontal
 id startVertical
 id staticLayout
 id staticPostLayout
+id status
 id status_bar_latest_event_content
 id stop
 id stretch
@@ -2092,7 +2093,6 @@ id textView22
 id textView24
 id textView3
 id textView4
-id textView5
 id textView6
 id textView7
 id textView8
@@ -2417,7 +2417,11 @@ string imageDesc
 string item_view_role_description
 string material_slider_range_end
 string material_slider_range_start
+string menu_chef_1
+string menu_chef_2
 string menu_food
+string menu_order_1
+string menu_order_2
 string menu_role
 string menu_table
 string menu_user

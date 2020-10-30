@@ -10,6 +10,10 @@
     <string name="menu_food">Đồ ăn</string>
     <string name="menu_table">Bàn</string>
     <string name="menu_role">Quyền</string>
+    <string name="menu_order_1">Gọi thêm món</string>
+    <string name="menu_order_2">Hiện hóa đơn thanh toán</string>
+    <string name="menu_chef_1">Xong</string>
+    <string name="menu_chef_2">Chưa xong</string>
 
     <!--  TODO : Other-->
     <string name="button_Cancel">Cancel</string>

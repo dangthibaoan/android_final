@@ -8,17 +8,13 @@
 
     <GridView
         android:id="@+id/choose_food_grview"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:numColumns="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:text="Nhấn quay lại để kết thúc việc gọi món"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

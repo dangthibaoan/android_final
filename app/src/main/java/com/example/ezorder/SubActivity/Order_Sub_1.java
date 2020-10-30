@@ -1,15 +1,11 @@
 package com.example.ezorder.SubActivity;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,35 +18,26 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.ezorder.Adapter.FoodFragmentAdapter;
-import com.example.ezorder.Adapter.OrderAdapter;
 import com.example.ezorder.Adapter.Order_Sub_1_Adapter;
 import com.example.ezorder.Model.Food;
 import com.example.ezorder.Model.Order;
-import com.example.ezorder.Model.Role;
-import com.example.ezorder.Model.Table;
-import com.example.ezorder.OrderScreen;
 import com.example.ezorder.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
 
-import java.io.ByteArrayOutputStream;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Random;
+
+import static com.example.ezorder.SubActivity.LoginScreen.USERID;
 
 public class Order_Sub_1 extends AppCompatActivity {
     private static final String TAG = "Order Food";
@@ -141,14 +128,8 @@ public class Order_Sub_1 extends AppCompatActivity {
                                 String note = etGhichu.getText().toString().trim();
                                 Date now = new Date(System.currentTimeMillis());
 
-                                final Order orderDetails = new Order(orderID,sl,now,note,foodIDs,1,0,tblID);
-//                                foodList.add(orderDetails);
+                                final Order orderDetails = new Order(orderID,sl,now,note,foodIDs,USERID,0,tblID);
                                 orderID++;
-
-//                                data = new HashMap<>();
-//                                data.put("DocumentID",documentID);
-//                                data.put("SoMonDuocGoi",orderID);
-//                                data.put("FoodList", foodList);
 
                                 db.collection("Order").document(documentID)
                                         .collection("OrderID").document(String.valueOf(orderID))
@@ -160,7 +141,7 @@ public class Order_Sub_1 extends AppCompatActivity {
                                                         "Đã gọi "+orderDetails.getOrderNumber()+" "
                                                                 + food.getFoodUnit() +" "+ food.getFoodName()
                                                                 + " cho bàn " + soBan,
-                                                        Toast.LENGTH_LONG).show();
+                                                        Toast.LENGTH_SHORT).show();
                                             }
                                         })
                                         .addOnFailureListener(new OnFailureListener() {

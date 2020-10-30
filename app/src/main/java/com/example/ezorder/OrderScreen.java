@@ -43,14 +43,12 @@ public class OrderScreen extends AppCompatActivity {
     private static final String TAG = "Dinner Table";
 
     GridView gridView;
-    int status, tNum;
+    int status, tNum, userID;
     String tbID, documentID;
     List<Table> tableList;
     OrderAdapter adapter;
     FirebaseFirestore db;
     Map<String, Object> data = new HashMap<>();
-
-    Thread getListTable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,32 +57,7 @@ public class OrderScreen extends AppCompatActivity {
 
         gridView = findViewById(R.id.order_layout);
 
-        db = FirebaseFirestore.getInstance();
-
-        getListTable = new Thread() {
-            @Override
-            public void run() {
-                db.collection("Table")
-                        .get()
-                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                            @Override
-                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                tableList = new ArrayList<>();
-                                if (task.isSuccessful()) {
-                                    for (QueryDocumentSnapshot snapshot : task.getResult()) {
-                                        Table table = snapshot.toObject(Table.class);
-                                        tableList.add(table);
-                                    }
-                                    adapter = new OrderAdapter(getApplicationContext(), R.drawable.ic_dinner_table, tableList);
-                                    gridView.setAdapter(adapter);
-                                } else {
-                                    Log.d(TAG, "onComplete: Load data error " + task.getException());
-                                }
-                            }
-                        });
-            }
-        };
-        getListTable.start();
+        getListTable();
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -103,7 +76,7 @@ public class OrderScreen extends AppCompatActivity {
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-                                    Toast.makeText(getApplicationContext(),"Gọi món cho bàn "+tNum+"\ndocumentID = " + documentID,Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(),"Gọi món cho bàn "+tNum,Toast.LENGTH_SHORT).show();
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
@@ -144,11 +117,11 @@ public class OrderScreen extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.menu_order:
-                        Toast.makeText(getApplicationContext(),"Gọi thêm món cho bàn " + tNum+"\nDocumentID="+documentID,Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Gọi thêm món cho bàn " + tNum,Toast.LENGTH_SHORT).show();
                         order(1);// gọi thêm trong order cũ
                         break;
                     case R.id.menu_bill:
-                        Toast.makeText(getApplicationContext(),"Hiện hóa đơn của bàn " + tNum,Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Hiện hóa đơn của bàn " + tNum,Toast.LENGTH_SHORT).show();
                         //show bill
                         break;
                 }
@@ -158,13 +131,42 @@ public class OrderScreen extends AppCompatActivity {
         popupMenu.show();
     }
 
-    void order(int orderNumber){
+    private void order(int orderNumber){
         Intent intent = new Intent(OrderScreen.this, Order_Sub_1.class);
         intent.putExtra("tblID",tbID);
         intent.putExtra("tbNum", tNum);
         intent.putExtra("status", status);
         intent.putExtra("DocumentID", documentID);
         intent.putExtra("orderNumber", orderNumber);
+        intent.putExtra("USERID", userID);
         startActivity(intent);
+    }
+    private void getListTable(){
+        db = FirebaseFirestore.getInstance();
+        db.collection("Table")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        tableList = new ArrayList<>();
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot snapshot : task.getResult()) {
+                                Table table = snapshot.toObject(Table.class);
+                                tableList.add(table);
+                            }
+                            adapter = new OrderAdapter(getApplicationContext(), R.drawable.ic_dinner_table, tableList);
+                            gridView.setAdapter(adapter);
+                        } else {
+                            Log.d(TAG, "onComplete: Load data error " + task.getException());
+                        }
+                    }
+                });
+    }
+
+    @Override
+    protected void onResume() {
+        Toast.makeText(getApplicationContext(),"Đang tải danh sách bàn ăn",Toast.LENGTH_SHORT).show();
+        getListTable();
+        super.onResume();
     }
 }
